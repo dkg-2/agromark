@@ -4,7 +4,7 @@ AGROMARK is a modern, full-stack web application designed to empower farmers by 
 
 ---
 
-### ➤ [Live Demo (Placeholder)](https://agromark.vercel.app/)
+### ➤ [Live Demo](https://agromark.vercel.app/)
 
 ## ✨ Features
 
