@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AGROMARK: AI-Powered Agricultural Platform
 
-## Getting Started
+AGROMARK is a modern, full-stack web application designed to empower farmers by providing accessible AI-powered tools for crop management. The platform offers features for diagnosing plant diseases, receiving intelligent crop recommendations, and getting expert advice from a generative AI assistant.
 
-First, run the development server:
+---
+
+### ➤ [Live Demo (Placeholder)](https://agromark.vercel.app/)
+
+## ✨ Features
+
+-   **🌿 Plant Disease Detection:** Upload an image of a plant leaf and get an instant diagnosis from a powerful CNN model, identifying whether the plant is healthy or diseased.
+-   **🌾 Crop Recommendation:** Input environmental and soil data (NPK values, temperature, humidity, pH, rainfall) to receive a data-driven recommendation for the most suitable crop to cultivate.
+-   **🤖 AI Chat Assistant:** Engage in a real-time, conversational chat with a Large Language Model (powered by the Groq API) to ask questions and get detailed answers on a wide range of agricultural topics.
+-   **🌓 Theme Toggle:** Switch between light and dark modes for comfortable viewing in any environment.
+-   **📱 Responsive Design:** A clean, modern, and fully responsive user interface built with Next.js, Tailwind CSS, and shadcn/ui.
+
+## 🛠️ Technology Stack
+
+-   **Frontend:**
+    -   [Next.js](https://nextjs.org/) (React Framework)
+    -   [React](https://reactjs.org/)
+    -   [TypeScript](https://www.typescriptlang.org/)
+    -   [Tailwind CSS](https://tailwindcss.com/)
+    -   [shadcn/ui](https://ui.shadcn.com/) (UI Components)
+    -   [Framer Motion](https://www.framer.com/motion/) (Animations)
+
+-   **Backend:**
+    -   [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)
+    -   [Node.js](https://nodejs.org/)
+
+-   **AI & Machine Learning:**
+    -   **Disease Detection:** TensorFlow/Keras (Xception CNN Model)
+    -   **Crop Recommendation:** Scikit-learn (Random Forest Classifier)
+    -   **Chat Assistant:** [Groq API](https://groq.com/) (Large Language Model Inference)
+    -   **Prototyping:** [Gradio](https://www.gradio.app/) & [Hugging Face Spaces](https://huggingface.co/spaces)
+
+-   **Deployment & Tools:**
+    -   [Vercel](https://vercel.com/)
+    -   [Git & GitHub](https://github.com/)
+
+## 🚀 Getting Started
+
+Follow these instructions to set up and run the project on your local machine.
+
+### Prerequisites
+
+-   [Node.js](https://nodejs.org/en/download/) (v18 or later recommended)
+-   [npm](https://www.npmjs.com/get-npm) or [yarn](https://yarnpkg.com/)
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/dkg-2/agromark.git
+cd agromark
+```
+
+### 2. Install Dependencies
+
+Install the required npm packages.
+
+```bash
+npm install
+```
+
+### 3. Set Up Environment Variables
+
+Create a new file named `.env.local` in the root of the project directory and add the following environment variables. You will need to get your own API keys from the respective services.
+
+```env
+# Groq API Key for the AI Chat Assistant
+GROQ_API_KEY="your_groq_api_key_here"
+
+# Hugging Face Token for accessing private Gradio models (if applicable)
+HF_TOKEN="your_hugging_face_token_here"
+```
+
+### 4. Run the Development Server
+
+Start the Next.js development server.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application running.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📂 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A brief overview of the key directories:
 
-## Learn More
+```
+/src
+|-- app/                # Main application routes (pages)
+|   |-- api/            # Backend API route handlers
+|   |   |-- chat/
+|   |   |-- crop-recommendation/
+|   |   `-- plant-disease/
+|   |-- chat/           # Frontend page for AI Chat
+|   |-- crop-recommendation/ # Frontend page for Crop Recommendation
+|   `-- plant-disease/  # Frontend page for Disease Detection
+|-- components/
+|   |-- ui/             # Reusable UI components (shadcn/ui)
+|   `-- hooks/          # Custom React hooks
+`-- lib/                # Utility functions
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Acknowledgments
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   This project was developed in a collaborative pair-programming session with **Google's Gemini AI**.
+-   The AI models were trained on datasets from Kaggle:
+    -   [PlantVillage Dataset](https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset)
+    -   [Crop Recommendation Dataset](https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
