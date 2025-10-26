@@ -22,6 +22,8 @@ const LinkCard = React.forwardRef<HTMLAnchorElement, LinkCardProps>(
       imageUrl,
       href, // Destructure and ignore the conflicting onDrag prop
       onDrag,
+      onDragStart,
+      onDragEnd,
       ...props
     },
     ref
