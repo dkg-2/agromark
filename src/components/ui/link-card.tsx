@@ -2,7 +2,7 @@
 
 // file: components/ui/link-card.tsx
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils"; // Utility for merging class names
 
 // Props interface for type safety and clarity
@@ -16,7 +16,7 @@ interface LinkCardProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 const LinkCard = React.forwardRef<HTMLAnchorElement, LinkCardProps>(
   ({ className, title, description, imageUrl, href, ...props }, ref) => {
     // Animation variants for framer-motion
-    const cardVariants = {
+    const cardVariants: Variants = {
       initial: { scale: 1, y: 0 },
       hover: {
         scale: 1.03,
