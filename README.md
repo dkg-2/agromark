@@ -1,4 +1,4 @@
-# AGROMARK: AI-Powered Agricultural Platform
+# AGROMARK: AI-Powered Crop Management
 
 AGROMARK is a modern, full-stack web application designed to empower farmers by providing accessible AI-powered tools for crop management. The platform offers features for diagnosing plant diseases, receiving intelligent crop recommendations, and getting expert advice from a generative AI assistant.
 
