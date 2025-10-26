@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 // file: components/ui/link-card.tsx
 import React from "react";
@@ -14,7 +14,18 @@ interface LinkCardProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const LinkCard = React.forwardRef<HTMLAnchorElement, LinkCardProps>(
-  ({ className, title, description, imageUrl, href, ...props }, ref) => {
+  (
+    {
+      className,
+      title,
+      description,
+      imageUrl,
+      href, // Destructure and ignore the conflicting onDrag prop
+      onDrag,
+      ...props
+    },
+    ref
+  ) => {
     // Animation variants for framer-motion
     const cardVariants: Variants = {
       initial: { scale: 1, y: 0 },
