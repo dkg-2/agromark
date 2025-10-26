@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     // Gradio client returns result.data, which is an array.
     // The first element should be the prediction string.
-    const predictionResult = result.data[0];
+    const predictionResult = (result.data as any[])[0];
 
     return NextResponse.json({ prediction: predictionResult }, { status: 200 });
   } catch (error) {

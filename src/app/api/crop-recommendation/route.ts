@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     // Gradio client returns result.data, which is an array.
     // The first element should be the recommendation string.
-    const recommendation = result.data[0];
+    const recommendation = (result.data as any[])[0];
 
     return NextResponse.json({ recommendation }, { status: 200 });
   } catch (error) {
