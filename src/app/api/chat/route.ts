@@ -1,4 +1,5 @@
 import { Groq } from 'groq-sdk';
+import type { ChatCompletionMessageParam } from 'groq-sdk/resources/chat/completions';
 import { NextResponse } from 'next/server';
 import { marked } from 'marked';
 
@@ -18,19 +19,21 @@ export async function POST(request: Request) {
       );
     }
 
-    // Prepare messages for Groq API, ensuring content is a string
-    const formattedMessages = messages.map((msg: any) => ({
-      role: msg.sender === 'user' ? 'user' : 'assistant',
-      content: String(msg.text), // Ensure content is a string
-    }));
+    // Prepare messages for Groq API, ensuring they match the required type
+    const formattedMessages: ChatCompletionMessageParam[] = messages.map(
+      (msg: any) => ({
+        role: msg.sender === 'user' ? 'user' : 'assistant',
+        content: String(msg.text),
+      })
+    );
 
     const chatCompletion = await groq.chat.completions.create({
       messages: formattedMessages,
-      model: 'groq/compound', // As specified in your documentation
+      model: 'groq/compound', // As specified in documentation
       temperature: 1,
       max_completion_tokens: 1024,
       top_p: 1,
-      stream: false, // For now, we'll get the full response; streaming can be added later
+      stream: false, // Get the full response; streaming can be added later
       stop: null,
       compound_custom: {
         tools: {
