@@ -16,9 +16,11 @@ export async function POST(request: Request) {
 
     // Connect to the Gradio client
     // Use process.env.HF_TOKEN for authentication if the space is private
-    const client = await Client.connect("dkg-2/Agroshield_disease_prediction", {
-      hf_token: process.env.HF_TOKEN,
-    });
+   const client = await Client.connect("dkg-2/Agroshield_disease_prediction", {
+  // @ts-ignore - The type definition is incorrect in this pre-release version
+  hf_token: process.env.HF_TOKEN,
+});
+
 
     // Call the /predict endpoint
     const result = await client.predict("/predict", {
