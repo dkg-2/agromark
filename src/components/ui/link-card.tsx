@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-// file: components/ui/link-card.tsx
 import React from "react";
 import { motion, type Variants } from "framer-motion";
-import { cn } from "@/lib/utils"; // Utility for merging class names
+import { cn } from "@/lib/utils";
 
-// Props interface for type safety and clarity
-interface LinkCardProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+// Define only the props the component actually uses.
+// This prevents conflicts with framer-motion's internal props.
+interface LinkCardProps {
+  className?: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -14,21 +15,7 @@ interface LinkCardProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const LinkCard = React.forwardRef<HTMLAnchorElement, LinkCardProps>(
-  (
-    {
-      className,
-      title,
-      description,
-      imageUrl,
-      href, // Destructure and ignore the conflicting onDrag prop
-      onDrag,
-      onDragStart,
-      onDragEnd,
-      ...props
-    },
-    ref
-  ) => {
-    // Animation variants for framer-motion
+  ({ className, title, description, imageUrl, href }, ref) => {
     const cardVariants: Variants = {
       initial: { scale: 1, y: 0 },
       hover: {
@@ -46,6 +33,8 @@ const LinkCard = React.forwardRef<HTMLAnchorElement, LinkCardProps>(
       <motion.a
         ref={ref}
         href={href}
+        // It's a good practice to open external-like links in a new tab
+        // If these were internal Next.js links, we would use the <Link> component
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
@@ -58,7 +47,7 @@ const LinkCard = React.forwardRef<HTMLAnchorElement, LinkCardProps>(
         initial="initial"
         whileHover="hover"
         aria-label={`Link to ${title}`}
-        {...props}
+        // {...props} is removed to prevent type conflicts
       >
         {/* Text content */}
         <div className="z-10">
@@ -70,7 +59,7 @@ const LinkCard = React.forwardRef<HTMLAnchorElement, LinkCardProps>(
           </p>
         </div>
 
-        {/* Image container with a subtle scale effect on hover */}
+        {/* Image container */}
         <div className="absolute bottom-0 right-0 h-48 w-48 translate-x-1/4 translate-y-1/4 transform">
           <motion.img
             src={imageUrl}
