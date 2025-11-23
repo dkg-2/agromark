@@ -87,12 +87,12 @@ export const WovenLightHero = () => {
           animate={buttonControls}
           className="mt-10"
         >
-          <button
+          {/* <button
             className="rounded-full border-2 border-border bg-card px-8 py-3 font-semibold text-foreground backdrop-blur-sm transition-all hover:bg-muted"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Get Started
-          </button>
+          </button> */}
         </motion.div>
       </div>
     </div>
